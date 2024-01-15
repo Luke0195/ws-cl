@@ -1,11 +1,12 @@
 package br.com.dsclients.application.services.exceptions;
 
-public class ResourceAlreadyExists extends RuntimeException{
+public class ResourceAlreadyExists extends RuntimeException {
 
 
-    public ResourceAlreadyExists(){}
+    public ResourceAlreadyExists() {
+    }
 
-    public ResourceAlreadyExists(String message){
+    public ResourceAlreadyExists(String message) {
         super(message);
     }
 

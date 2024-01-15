@@ -6,15 +6,16 @@ import org.springframework.http.HttpStatus;
 
 public class HttpUtils {
 
-    private HttpUtils(){}
+    private HttpUtils() {
+    }
 
 
-    public static Integer makeHttpStatus(HttpStatus status){
+    public static Integer makeHttpStatus(HttpStatus status) {
         return status.value();
     }
 
 
-    public static String getRequestPath(HttpServletRequest request){
+    public static String getRequestPath(HttpServletRequest request) {
         return request.getRequestURI();
     }
 

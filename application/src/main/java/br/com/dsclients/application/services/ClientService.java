@@ -5,5 +5,6 @@ import org.springframework.data.domain.Page;
 
 public interface ClientService {
     ClientDto create(ClientDto dto);
+
     Page<ClientDto> findAllClients();
 }

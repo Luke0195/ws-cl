@@ -16,7 +16,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="tb_clients")
+@Table(name = "tb_clients")
 public class Client implements Serializable {
 
     @Id
@@ -35,10 +35,10 @@ public class Client implements Serializable {
     private Integer children;
 
     @CreationTimestamp
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private Instant createadAt;
 
     @CreationTimestamp
-    @Column(name="updated_at")
+    @Column(name = "updated_at")
     private Instant updatedAt;
 }

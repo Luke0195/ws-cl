@@ -16,8 +16,9 @@ import java.util.Optional;
 @Service
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
+
     @Autowired
-    public ClientServiceImpl(ClientRepository clientRepository){
+    public ClientServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
@@ -25,7 +26,7 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ClientDto create(ClientDto dto) {
         Optional<Client> entityAlreadyExists = clientRepository.findByCpf(dto.getCpf());
-        if(entityAlreadyExists.isPresent()) throw new ResourceAlreadyExists("This cpf is already taken!");
+        if (entityAlreadyExists.isPresent()) throw new ResourceAlreadyExists("This cpf is already taken!");
         Client client = ClientMapper.mapClientDtoEntity(dto);
         client = clientRepository.save(client);
         return ClientMapper.mapEntityToClientDto(client);
