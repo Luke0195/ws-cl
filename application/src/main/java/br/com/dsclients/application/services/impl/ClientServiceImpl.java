@@ -5,7 +5,9 @@ import br.com.dsclients.application.entites.Client;
 import br.com.dsclients.application.mappers.ClientMapper;
 import br.com.dsclients.application.repositories.ClientRepository;
 import br.com.dsclients.application.services.ClientService;
+import br.com.dsclients.application.services.exceptions.ResourceAlreadyExists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,12 +25,14 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ClientDto create(ClientDto dto) {
         Optional<Client> entityAlreadyExists = clientRepository.findByCpf(dto.getCpf());
-        if(entityAlreadyExists.isPresent()) throw new RuntimeException("This cpf is already taken!");
+        if(entityAlreadyExists.isPresent()) throw new ResourceAlreadyExists("This cpf is already taken!");
         Client client = ClientMapper.mapClientDtoEntity(dto);
         client = clientRepository.save(client);
         return ClientMapper.mapEntityToClientDto(client);
     }
 
-
-
+    @Override
+    public Page<ClientDto> findAllClients() {
+        return null;
+    }
 }

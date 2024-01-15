@@ -13,7 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/v1/clients")
+@RequestMapping(value="/clients")
 public class ClientController {
     private final ClientServiceImpl clientServiceImpl;
     @Autowired
